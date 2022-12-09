@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/feedback"
+        android:icon="@drawable/ic_baseline_message_24"
+        android:title="Feedback" />
+
+    <item
+        android:id="@+id/privacy"
+        android:icon="@drawable/ic_baseline_policy_24"
+        android:title="Privacy Policy" />
+
+    <item
+        android:id="@+id/terrms"
+        android:icon="@drawable/ic_baseline_local_police_24"
+        android:title="Terms and Condition" />
+
+    <item
+        android:id="@+id/ither"
+        android:title="Other">
+
+
+        <menu>
+
+            <item android:title="Exit"
+                android:id="@+id/exit"
+                android:icon="@drawable/ic_baseline_exit_to_app_24"/>
+        </menu>
+    </item>
+</menu>
