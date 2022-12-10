@@ -27,6 +27,7 @@ class DetailActivity : AppCompatActivity() {
 
         binding.title.text = data.getStringExtra("title")
         binding.description.text = data.getStringExtra("description")
+        binding.price.text = data.getStringExtra("price").toString()
 
         binding.buyNow.setOnClickListener {
             Toast.makeText(this@DetailActivity,"Purchased Successful", Toast.LENGTH_LONG).show()

@@ -130,11 +130,8 @@ class MainActivity : AppCompatActivity() {
         categoryList.add(CategoryCard(R.drawable.fashion,"Clothes"))
         categoryList.add(CategoryCard(R.drawable.watches,"Watches"))
         categoryList.add(CategoryCard(R.drawable.glasses,"Glasses"))
-
-        categoryList.add(CategoryCard(R.drawable.shoes,"Shoes"))
-        categoryList.add(CategoryCard(R.drawable.fashion,"Clothes"))
-        categoryList.add(CategoryCard(R.drawable.watches,"Watches"))
-        categoryList.add(CategoryCard(R.drawable.glasses,"Glasses"))
+        categoryList.add(CategoryCard(R.drawable.shoes,"Jewellery"))
+        categoryList.add(CategoryCard(R.drawable.fashion,"Grocery"))
 
         binding.categoryCard.layoutManager = GridLayoutManager(this@MainActivity,2)
         val adapter = CategoryAdapter(categoryList)
