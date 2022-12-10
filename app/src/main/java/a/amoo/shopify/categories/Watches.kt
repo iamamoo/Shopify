@@ -18,11 +18,9 @@ class Watches : AppCompatActivity() {
 
 
         setSupportActionBar(binding.watchesTool)
-        supportActionBar?.title = ""
+        supportActionBar?.title = "Watches"
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
 
-        val data = intent
-        binding.category.text = data.getStringExtra("category").toString()
 
 
     }

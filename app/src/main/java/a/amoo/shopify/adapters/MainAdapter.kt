@@ -10,7 +10,7 @@ import android.widget.ImageView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import a.amoo.shopify.DetailActivity
-import com.amoo.epro.models.MainCard
+import a.amoo.shopify.models.MainCard
 import com.squareup.picasso.Picasso
 
 class MainAdapter(private val list : ArrayList<MainCard>, private val context : Context) :

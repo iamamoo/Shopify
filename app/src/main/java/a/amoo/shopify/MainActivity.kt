@@ -10,10 +10,12 @@ import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.amoo.epro.adapters.CategoryAdapter
+import a.amoo.shopify.adapters.CategoryAdapter
 import a.amoo.shopify.adapters.MainAdapter
+import a.amoo.shopify.categories.*
 import com.amoo.epro.models.CategoryCard
-import com.amoo.epro.models.MainCard
+import a.amoo.shopify.models.MainCard
+import android.content.Intent
 import com.google.firebase.firestore.*
 
 class MainActivity : AppCompatActivity() {
@@ -48,6 +50,7 @@ class MainActivity : AppCompatActivity() {
 
         // Setting NavBar Item Click Listener
         binding.navigationView.setNavigationItemSelectedListener {
+
             when (it.itemId) {
                 R.id.feedback -> {
                     Toast.makeText(this, "You click on ${it.title}", Toast.LENGTH_LONG).show()
@@ -74,6 +77,8 @@ class MainActivity : AppCompatActivity() {
             }
             true
         }
+
+
 
 
     }
@@ -107,20 +112,14 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.tool_menu, menu)
         return true
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         if (item.itemId == R.id.cart) {
             Toast.makeText(this@MainActivity, "You clicked to cart", Toast.LENGTH_SHORT).show()
         }
-
-
         return true
     }
 
@@ -130,11 +129,43 @@ class MainActivity : AppCompatActivity() {
         categoryList.add(CategoryCard(R.drawable.fashion,"Clothes"))
         categoryList.add(CategoryCard(R.drawable.watches,"Watches"))
         categoryList.add(CategoryCard(R.drawable.glasses,"Glasses"))
-        categoryList.add(CategoryCard(R.drawable.shoes,"Jewellery"))
-        categoryList.add(CategoryCard(R.drawable.fashion,"Grocery"))
+        categoryList.add(CategoryCard(R.drawable.jewelery,"Jewellery"))
+        categoryList.add(CategoryCard(R.drawable.grocery,"Grocery"))
 
         binding.categoryCard.layoutManager = GridLayoutManager(this@MainActivity,2)
         val adapter = CategoryAdapter(categoryList)
         binding.categoryCard.adapter = adapter
+
+        // Setting Click Listener on RecyclerView items...
+        adapter.setOnItemClickListener(object : CategoryAdapter.OnItemClickListener{
+            override fun itemClickListener(position: Int) {
+                if (position == 0) {
+                    val intent = Intent(this@MainActivity, Shoes::class.java)
+                    startActivity(intent)
+                }
+                if (position == 1) {
+                    val intent = Intent(this@MainActivity, Fashion::class.java)
+                    startActivity(intent)
+                }
+                if (position == 2) {
+                    val intent = Intent(this@MainActivity, Watches::class.java)
+                    startActivity(intent)
+                }
+                if (position == 3) {
+                    val intent = Intent(this@MainActivity, Glasses::class.java)
+                    startActivity(intent)
+                }
+                if (position == 4) {
+                    val intent = Intent(this@MainActivity, Jewellery::class.java)
+                    startActivity(intent)
+                }
+                if (position == 5) {
+                    val intent = Intent(this@MainActivity, Grocery::class.java)
+                    startActivity(intent)
+                }
+            }
+
+        })
+
     }
 }

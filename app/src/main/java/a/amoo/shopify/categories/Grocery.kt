@@ -17,11 +17,8 @@ class Grocery : AppCompatActivity() {
         setContentView(binding.root)
 
         setSupportActionBar(binding.groceryTool)
-        supportActionBar?.title = ""
+        supportActionBar?.title = "Grocery"
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
-
-        val data = intent
-        binding.category.text = data.getStringExtra("category").toString()
 
 
 

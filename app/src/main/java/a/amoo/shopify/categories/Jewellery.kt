@@ -18,11 +18,9 @@ class Jewellery : AppCompatActivity() {
 
 
         setSupportActionBar(binding.jewelleryTool)
-        supportActionBar?.title = ""
+        supportActionBar?.title = "Jewellery"
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
 
-        val data = intent
-        binding.category.text = data.getStringExtra("category").toString()
 
 
 

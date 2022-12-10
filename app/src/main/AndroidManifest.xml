@@ -15,42 +15,42 @@
         android:theme="@style/Theme.EPro.NoActionBar"
         tools:targetApi="31">
         <activity
-            android:name=".Grocery"
+            android:name=".categories.Grocery"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".Jewellery"
+            android:name=".categories.Jewellery"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".Glasses"
+            android:name=".categories.Glasses"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".Watches"
+            android:name=".categories.Watches"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".Fashion"
+            android:name=".categories.Fashion"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".Shoes"
+            android:name=".categories.Shoes"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

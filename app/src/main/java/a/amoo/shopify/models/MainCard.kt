@@ -1,4 +1,4 @@
-package com.amoo.epro.models
+package a.amoo.shopify.models
 
 data class MainCard(
     // This pojo class helps us to fetch data from firestore

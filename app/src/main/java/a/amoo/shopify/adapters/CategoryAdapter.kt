@@ -1,4 +1,4 @@
-package com.amoo.epro.adapters
+package a.amoo.shopify.adapters
 
 import a.amoo.shopify.R
 import android.view.LayoutInflater
@@ -12,14 +12,33 @@ import com.amoo.epro.models.CategoryCard
 class CategoryAdapter(private val list: ArrayList<CategoryCard>) :
     RecyclerView.Adapter<CategoryAdapter.ViewHOlder>() {
 
-    inner class ViewHOlder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    private lateinit var positionListener: OnItemClickListener
+
+    interface OnItemClickListener {
+        fun itemClickListener(position: Int)
+    }
+
+    fun setOnItemClickListener(listener: OnItemClickListener) {
+        positionListener = listener
+    }
+
+
+    inner class ViewHOlder(itemView: View, myListener: OnItemClickListener) :
+        RecyclerView.ViewHolder(itemView) {
         val image: ImageView = itemView.findViewById(R.id.category_image)
         val title: TextView = itemView.findViewById(R.id.category_title)
+
+        init {
+            itemView.setOnClickListener {
+                myListener.itemClickListener(adapterPosition)
+            }
+        }
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHOlder {
         val v = LayoutInflater.from(parent.context).inflate(R.layout.category_sample, parent, false)
-        return ViewHOlder(v)
+        return ViewHOlder(v, positionListener)
     }
 
     override fun onBindViewHolder(holder: ViewHOlder, position: Int) {

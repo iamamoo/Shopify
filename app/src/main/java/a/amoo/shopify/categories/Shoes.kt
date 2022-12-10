@@ -18,11 +18,9 @@ class Shoes : AppCompatActivity() {
 
 
         setSupportActionBar(binding.shoesTool)
-        supportActionBar?.title = ""
+        supportActionBar?.title = "Shoes"
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
 
-        val data = intent
-        binding.category.text = data.getStringExtra("category").toString()
 
 
 

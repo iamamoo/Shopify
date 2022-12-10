@@ -17,12 +17,8 @@ class Glasses : AppCompatActivity() {
         setContentView(binding.root)
 
         setSupportActionBar(binding.glassesTool)
-        supportActionBar?.title = ""
+        supportActionBar?.title = "Glasses"
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
-
-        val data = intent
-        binding.category.text = data.getStringExtra("category").toString()
-
 
 
 
