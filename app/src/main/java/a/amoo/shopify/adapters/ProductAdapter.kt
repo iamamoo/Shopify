@@ -19,8 +19,8 @@ class ProductAdapter(private val list : List<MainCard>, private val context : Co
     inner class InnerClass(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val card : CardView = itemView.findViewById(R.id.product_card)
         val title : TextView = itemView.findViewById(R.id.product_title)
-        val description : TextView = itemView.findViewById(R.id.product_description)
-        val price : TextView = itemView.findViewById(R.id.product_price)
+//        val description : TextView = itemView.findViewById(R.id.product_description)
+//        val price : TextView = itemView.findViewById(R.id.product_price)
         val url : ImageView = itemView.findViewById(R.id.productImage)
     }
 
@@ -32,9 +32,10 @@ class ProductAdapter(private val list : List<MainCard>, private val context : Co
     override fun onBindViewHolder(holder: InnerClass, position: Int) {
         val model = list[position]
         Picasso.get().load(model.url).into(holder.url)
-        holder.price.text = model.price.toString()
-        holder.title.text = model.title
-        holder.description.text = model.description
+        val p = model.price.toString()
+//        holder.price.text = "$$p"
+        holder.title.text = model.title.toString()
+//        holder.description.text = model.description.toString()
 
         holder.card.setOnClickListener {
             val intent = Intent(context,DetailActivity::class.java)

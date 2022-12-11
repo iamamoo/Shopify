@@ -15,6 +15,24 @@
         <!-- Customize your theme here. -->
     </style>
 
+    // Theme.Material3.Dark.Dialog
+    // Dark theme for Alert Dialog
+    <style name="Theme.AlertDialog.Epro" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <!-- Primary brand color. -->
+        <item name="android:radius">20dp</item>
+        <item name="fontFamily">@font/poppins</item>
+        <item name="colorPrimary">@color/white</item>
+        <item name="colorPrimaryVariant">@color/black</item>
+        <item name="colorOnPrimary">@color/black</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/white</item>
+        <item name="colorSecondaryVariant">@color/white</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+    </style>
+
     <style name="Theme.title" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <item name="fontFamily">@font/poppins_semibold</item>
     </style>

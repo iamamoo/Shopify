@@ -2,8 +2,6 @@ package a.amoo.shopify
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import android.view.Menu
-import android.view.MenuItem
 import a.amoo.shopify.databinding.ActivityMainBinding
 import android.util.Log
 import android.widget.Toast
@@ -16,6 +14,7 @@ import a.amoo.shopify.categories.*
 import com.amoo.epro.models.CategoryCard
 import a.amoo.shopify.models.MainCard
 import android.content.Intent
+import androidx.appcompat.app.AlertDialog
 import com.google.firebase.firestore.*
 
 class MainActivity : AppCompatActivity() {
@@ -53,22 +52,22 @@ class MainActivity : AppCompatActivity() {
 
             when (it.itemId) {
                 R.id.feedback -> {
-                    Toast.makeText(this, "You click on ${it.title}", Toast.LENGTH_LONG).show()
+                    Toast.makeText(this, "This feature is not implemented yet...", Toast.LENGTH_LONG).show()
                     binding.drawerLayout.closeDrawers()
 
                 }
                 R.id.privacy -> {
-                    Toast.makeText(this, "You click on ${it.title}", Toast.LENGTH_LONG).show()
+                    Toast.makeText(this, "This feature is not implemented yet...", Toast.LENGTH_LONG).show()
                     binding.drawerLayout.closeDrawers()
 
                 }
                 R.id.terrms -> {
-                    Toast.makeText(this, "You click on ${it.title}", Toast.LENGTH_LONG).show()
+                    Toast.makeText(this, "This feature is not implemented yet...", Toast.LENGTH_LONG).show()
                     binding.drawerLayout.closeDrawers()
 
                 }
                 R.id.exit -> {
-                    Toast.makeText(this, "You click on ${it.title}", Toast.LENGTH_LONG).show()
+                    showSimpleAlert()
                     binding.drawerLayout.closeDrawers()
 
                 }
@@ -81,6 +80,11 @@ class MainActivity : AppCompatActivity() {
 
 
 
+    }
+
+    @Deprecated("Deprecated in Java")
+    override fun onBackPressed() {
+       showSimpleAlert()
     }
 
     private fun getData() {
@@ -109,18 +113,6 @@ class MainActivity : AppCompatActivity() {
 
         })
 
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        menuInflater.inflate(R.menu.tool_menu, menu)
-        return true
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (item.itemId == R.id.cart) {
-            Toast.makeText(this@MainActivity, "You clicked to cart", Toast.LENGTH_SHORT).show()
-        }
-        return true
     }
 
     private fun categoryData() {
@@ -168,4 +160,29 @@ class MainActivity : AppCompatActivity() {
         })
 
     }
+
+    private fun showSimpleAlert() {
+        AlertDialog.Builder(this@MainActivity,R.style.Theme_AlertDialog_Epro)
+            .setTitle("Exit")
+            .setIcon(R.drawable.exit_new)
+            .setMessage("Do you want to close this app?")
+            .setPositiveButton("Yes") { _, _ ->
+                try {
+                    finishAffinity()
+                } catch (e: Exception) {
+                    Log.d("e", e.localizedMessage!!.toString())
+                } catch (e: IllegalArgumentException) {
+                    Log.d("IllegalArgsException", e.localizedMessage!!.toString())
+                }
+
+            }
+            .setNegativeButton("No") { dialog, _ ->
+                dialog.cancel()
+            }
+            .setCancelable(true)
+            .show()
+    }
+
+
+
 }

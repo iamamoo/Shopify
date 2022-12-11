@@ -34,6 +34,7 @@ class MainAdapter(private val list : ArrayList<MainCard>, private val context : 
             intent.putExtra("url",model.url)
             intent.putExtra("category",model.category)
             intent.putExtra("title",model.title)
+            intent.putExtra("price",model.price)
             intent.putExtra("description",model.description)
             context.startActivity(intent)
         }

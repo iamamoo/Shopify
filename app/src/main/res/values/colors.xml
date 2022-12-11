@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="tool">#F69036</color>
-    <color name="tool_light">#FEBD54</color>
+    <color name="tool">#F7BA33</color>
+    <color name="tool_light">#F9D140</color>
     <color name="pink">#F1AA9B</color>
     <color name="yellow">#F0C38E</color>
     <color name="black">#FF000000</color>

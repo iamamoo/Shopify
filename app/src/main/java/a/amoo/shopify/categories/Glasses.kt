@@ -1,16 +1,20 @@
 package a.amoo.shopify.categories
 
-import a.amoo.shopify.R
-import a.amoo.shopify.databinding.ActivityFashionBinding
+import a.amoo.shopify.adapters.ProductAdapter
 import a.amoo.shopify.databinding.ActivityGlassesBinding
+import a.amoo.shopify.models.MainCard
+import a.amoo.shopify.viewmodels.GlassesViewModel
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuItem
-import android.widget.Toast
+import android.view.View
+import androidx.activity.viewModels
+import androidx.recyclerview.widget.GridLayoutManager
 
 class Glasses : AppCompatActivity() {
     private lateinit var binding : ActivityGlassesBinding
+    private var glassesList : List<MainCard> = ArrayList()
+    private val glassesViewModel : GlassesViewModel by viewModels()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityGlassesBinding.inflate(layoutInflater)
@@ -20,20 +24,32 @@ class Glasses : AppCompatActivity() {
         supportActionBar?.title = "Glasses"
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
 
+        getData()
+
 
 
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.tool_menu,menu)
-        return super.onCreateOptionsMenu(menu)
-    }
+    private fun getData() {
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (item.itemId == R.id.cart){
-            Toast.makeText(this@Glasses,"Added to Cart",Toast.LENGTH_SHORT).show()
+        glassesViewModel.getGlassesList().observe(this) {
+            glassesList = it
+            binding.glassesRec.hasFixedSize()
+            binding.glassesRec.isNestedScrollingEnabled = false
+            val adapter = ProductAdapter(glassesList, this)
+            binding.glassesRec.adapter = adapter
+            binding.glassesRec.layoutManager = GridLayoutManager(this@Glasses, 2)
+           adapter.notifyDataSetChanged()
+
+            //Loading complete
+            binding.progressBar.visibility = View.GONE
         }
-        return super.onOptionsItemSelected(item)
+    }
+
+    @Deprecated("Deprecated in Java")
+    override fun onBackPressed() {
+        finish()
+        super.onBackPressed()
     }
 
 

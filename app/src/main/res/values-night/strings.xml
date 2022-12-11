@@ -4,4 +4,7 @@
     <string name="buy_now">Buy Now</string>
     <string name="categories">Categories</string>
     <string name="likes">Likes</string>
+    <string name="price">Price</string>
+    <string name="_0">0</string>
+    <string name="fashion">Fashion</string>
 </resources>

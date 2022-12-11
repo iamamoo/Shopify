@@ -32,9 +32,7 @@
                     android:id="@+id/main_tool"
                     android:layout_width="match_parent"
                     android:layout_height="?actionBarSize"
-                    android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar"
-                    app:menu="@menu/tool_menu"
-
+                    android:theme="@style/Theme.Material3.DayNight"
                     app:navigationIcon="@drawable/new_menu">
 
                     <TextView

@@ -27,25 +27,13 @@ class DetailActivity : AppCompatActivity() {
 
         binding.title.text = data.getStringExtra("title")
         binding.description.text = data.getStringExtra("description")
-        binding.price.text = data.getStringExtra("price").toString()
+        val p = data.getStringExtra("price").toString()
+        binding.price.text = "$$p"
 
         binding.buyNow.setOnClickListener {
             Toast.makeText(this@DetailActivity,"Purchased Successful", Toast.LENGTH_LONG).show()
         }
 
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.detail_menu,menu)
-        return super.onCreateOptionsMenu(menu)
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (item.itemId == R.id.like){
-            Toast.makeText(this@DetailActivity,item.title, Toast.LENGTH_LONG).show()
-
-        }
-        return super.onOptionsItemSelected(item)
     }
 
     override fun onSupportNavigateUp(): Boolean {

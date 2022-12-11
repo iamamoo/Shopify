@@ -26,7 +26,7 @@ class CategoryAdapter(private val list: ArrayList<CategoryCard>) :
     inner class ViewHOlder(itemView: View, myListener: OnItemClickListener) :
         RecyclerView.ViewHolder(itemView) {
         val image: ImageView = itemView.findViewById(R.id.category_image)
-        val title: TextView = itemView.findViewById(R.id.category_title)
+//        val title: TextView = itemView.findViewById(R.id.category_title)
 
         init {
             itemView.setOnClickListener {
@@ -44,7 +44,7 @@ class CategoryAdapter(private val list: ArrayList<CategoryCard>) :
     override fun onBindViewHolder(holder: ViewHOlder, position: Int) {
         val model = list[position]
         model.image?.let { holder.image.setImageResource(it) }
-        holder.title.text = model.title
+//        holder.title.text = model.title
     }
 
     override fun getItemCount(): Int = list.size

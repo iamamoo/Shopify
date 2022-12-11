@@ -2,6 +2,7 @@ package a.amoo.shopify.repository
 
 import com.google.android.gms.tasks.Task
 import com.google.firebase.firestore.*
+import kotlinx.coroutines.tasks.await
 
 class ShoeRepo {
     private val db: FirebaseFirestore = FirebaseFirestore.getInstance()
@@ -15,8 +16,7 @@ class ShoeRepo {
 
         return if (lastVisible == null) {
             //Load First Page
-            db
-                .collection("main_card")
+            db.collection("main_card")
                 .limit(10)
                 .get()
         } else {
